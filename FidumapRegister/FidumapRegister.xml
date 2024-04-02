@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Fidumap</category>
+  <index>0</index>
+  <title>FidumapRegister</title>
+  <description><![CDATA[Run FidumapRegister to register two images via fiducial registration]]></description>
+  <version>0.1.0.</version>
+  <documentation-url>https://github.com/simonoxen/fidumap</documentation-url>
+  <license/>
+  <contributor>Simon Oxenford (Charite Berlin)</contributor>
+  <acknowledgements><![CDATA[TODO]]></acknowledgements>
+  <parameters>
+    <integer>
+      <name>n_fiducials</name>
+      <label>Number of fiducials</label>
+      <index>0</index>
+      <description><![CDATA[Number of fiducials extracted]]></description>
+      <default>32</default>
+    </integer>
+    <file>
+      <name>model_file</name>
+      <label>Model</label>
+      <index>1</index>
+      <description><![CDATA[Trained model]]></description>
+      <default>Default</default>
+    </file>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <image>
+      <name>moving_volume</name>
+      <label>Moving Volume</label>
+      <channel>input</channel>
+      <index>2</index>
+      <description><![CDATA[Moving volume]]></description>
+    </image>
+    <image>
+      <name>fixed_volume</name>
+      <label>Fixed Volume</label>
+      <channel>input</channel>
+      <index>3</index>
+      <description><![CDATA[Fixed volume]]></description>
+    </image>
+    <transform fileExtensions=".tfm">
+      <name>out_transform</name>
+      <label>Output Transform</label>
+      <channel>output</channel>
+      <index>4</index>
+      <description><![CDATA[Output transform]]></description>
+    </transform>
+    <image>
+      <name>out_volume</name>
+      <label>Output Volume</label>
+      <channel>output</channel>
+      <index>5</index>
+      <description><![CDATA[out volume]]></description>
+    </image>
+    <pointfile type="point" multiple="false" coordinateSystem="ras" fileExtensions=".mrk.json">
+      <name>out_moving_fiducials</name>
+      <label>Output Moving Fiducials</label>
+      <channel>output</channel>
+      <index>6</index>
+      <description><![CDATA[out moving fiducials]]></description>
+    </pointfile>
+    <pointfile type="point" multiple="false" coordinateSystem="ras" fileExtensions=".mrk.json">
+      <name>out_fixed_fiducials</name>
+      <label>Output Fixed Fiducials</label>
+      <channel>output</channel>
+      <index>7</index>
+      <description><![CDATA[out fixed fiducials]]></description>
+    </pointfile>
+  </parameters>
+</executable>

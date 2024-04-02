@@ -36,14 +36,21 @@ if __name__ == "__main__":
 
     n_fiducials = int(sys.argv[1])
     model_file = sys.argv[2] if os.path.exists(sys.argv[2]) else None
-    input_volume = sys.argv[3]
-    output_fiducials = sys.argv[4]
+    moving_volume = sys.argv[3]
+    fixed_volume = sys.argv[4]
+    output_transform = sys.argv[5]
+    output_volume = sys.argv[6]
+    output_moving_fiducials = sys.argv[7]
+    output_fixed_fiducials = sys.argv[8]
 
-    output_prefix = os.path.join(os.path.dirname(output_fiducials), 'out')
+    output_prefix = os.path.join(os.path.dirname(output_volume), 'out')
     
-    from fidumap.eval.extract import main
-    main(n_fiducials, model_file, input_volume, output_prefix)
+    from fidumap.eval.register import main
+    main(n_fiducials, model_file, moving_volume, fixed_volume, output_prefix)
     
-    csv_to_json(output_prefix + '_fiducials.csv', output_fiducials)
+    os.rename(output_prefix + '_transform.tfm', output_transform)
+    os.rename(output_prefix + '_img.nrrd', output_volume)
+    csv_to_json(output_prefix + '_fiducials_moving.csv', output_moving_fiducials)
+    csv_to_json(output_prefix + '_fiducials_fixed.csv', output_fixed_fiducials)
 
 

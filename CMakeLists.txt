@@ -20,6 +20,7 @@ include(${Slicer_USE_FILE})
 #-----------------------------------------------------------------------------
 # Extension modules
 add_subdirectory(FidumapExtract)
+add_subdirectory(FidumapRegister)
 ## NEXT_MODULE
 
 #-----------------------------------------------------------------------------

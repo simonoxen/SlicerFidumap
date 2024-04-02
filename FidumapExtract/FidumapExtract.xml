@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <executable>
-  <category>Examples</category>
+  <category>Fidumap</category>
   <index>0</index>
   <title>FidumapExtract</title>
   <description><![CDATA[Run FidumapExtract to extract fiducials relevant for registration]]></description>
@@ -33,18 +33,11 @@
       <index>2</index>
       <description><![CDATA[Moving volume]]></description>
     </image>
-    <image>
-      <name>out_volume</name>
-      <label>Output Volume</label>
-      <channel>output</channel>
-      <index>3</index>
-      <description><![CDATA[out volume]]></description>
-    </image>
     <pointfile type="point" multiple="false" coordinateSystem="ras" fileExtensions=".mrk.json">
       <name>out_fiducials</name>
       <label>Output Fiducials</label>
       <channel>output</channel>
-      <index>4</index>
+      <index>3</index>
       <description><![CDATA[out fiducials]]></description>
     </pointfile>
   </parameters>
